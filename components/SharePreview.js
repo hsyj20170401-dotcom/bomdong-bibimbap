@@ -21,38 +21,30 @@ export default function SharePreview({ ingredients, answers, onBack }) {
   const resultCode = generateResultCode(answers);
 
   const getShareUrl = () => {
-    const base =
-      typeof window !== "undefined"
-        ? window.location.origin + window.location.pathname
-        : "";
-    return `${base}?r=${resultCode}`;
+    const base = typeof window !== "undefined" ? window.location.origin + window.location.pathname : "";
+    return base + "?r=" + resultCode;
   };
 
-  const handleKakaoShare = () => {
+  const handleShare = async () => {
     const shareUrl = getShareUrl();
     const text = hasAll
       ? "봄동 비빔밥 재료 10/10 완성! 오늘 양푼째 비벼먹는다"
-      : `봄동 비빔밥 ${yesCount}/10... 이거 좀 사갖고 와줘`;
+      : "봄동 비빔밥 " + yesCount + "/10... 이거 좀 사갖고 와줘";
 
-    if (typeof window !== "undefined" && window.Kakao && window.Kakao.Share) {
-      window.Kakao.Share.sendDefault({
-        objectType: "feed",
-        content: {
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({
           title: "봄동 비빔밥 체크리스트",
-          description: text,
-          imageUrl: "",
-          link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
-        },
-        buttons: [
-          {
-            title: "나도 해보기",
-            link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
-          },
-        ],
-      });
+          text: text,
+          url: shareUrl,
+        });
+      } catch (e) {
+        if (e.name !== "AbortError") {
+          handleCopyLink();
+        }
+      }
     } else {
       handleCopyLink();
-      alert("카카오톡 공유 기능은 곧 연동됩니다.\n링크가 복사되었어요!");
     }
   };
 
@@ -61,16 +53,16 @@ export default function SharePreview({ ingredients, answers, onBack }) {
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      const ta = document.createElement("textarea");
+      setTimeout(function() { setCopied(false); }, 2000);
+    } catch (e) {
+      var ta = document.createElement("textarea");
       ta.value = shareUrl;
       document.body.appendChild(ta);
       ta.select();
       document.execCommand("copy");
       document.body.removeChild(ta);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(function() { setCopied(false); }, 2000);
     }
   };
 
@@ -78,13 +70,13 @@ export default function SharePreview({ ingredients, answers, onBack }) {
     if (!cardRef.current) return;
     setSaving(true);
     try {
-      const canvas = await html2canvas(cardRef.current, {
+      var canvas = await html2canvas(cardRef.current, {
         backgroundColor: "#ffffff",
         scale: 2,
         useCORS: true,
         logging: false,
       });
-      const link = document.createElement("a");
+      var link = document.createElement("a");
       link.download = "봄동비빔밥_결과.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
@@ -100,21 +92,10 @@ export default function SharePreview({ ingredients, answers, onBack }) {
         <div style={{ width: 140, height: 100, margin: "0 auto 12px" }}>
           <svg viewBox="0 0 140 100" width="140" height="100">
             <defs>
-              <radialGradient id="mFloor" cx="50%" cy="45%" r="50%">
-                <stop offset="0%" stopColor="#f5f5f5" />
-                <stop offset="100%" stopColor="#e8e8e8" />
-              </radialGradient>
-              <linearGradient id="mRim" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#e0e0e0" />
-                <stop offset="100%" stopColor="#c8c8c8" />
-              </linearGradient>
-              <linearGradient id="mWall" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#d8d8d8" />
-                <stop offset="100%" stopColor="#c0c0c0" />
-              </linearGradient>
-              <clipPath id="mClip">
-                <ellipse cx="70" cy="50" rx="56" ry="30" />
-              </clipPath>
+              <radialGradient id="mFloor" cx="50%" cy="45%" r="50%"><stop offset="0%" stopColor="#f5f5f5" /><stop offset="100%" stopColor="#e8e8e8" /></radialGradient>
+              <linearGradient id="mRim" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#e0e0e0" /><stop offset="100%" stopColor="#c8c8c8" /></linearGradient>
+              <linearGradient id="mWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#d8d8d8" /><stop offset="100%" stopColor="#c0c0c0" /></linearGradient>
+              <clipPath id="mClip"><ellipse cx="70" cy="50" rx="56" ry="30" /></clipPath>
             </defs>
             <ellipse cx="72" cy="88" rx="54" ry="10" fill="rgba(0,0,0,0.08)" />
             <ellipse cx="70" cy="55" rx="62" ry="38" fill="url(#mWall)" />
@@ -135,27 +116,21 @@ export default function SharePreview({ ingredients, answers, onBack }) {
             <path d="M8,38 A62,18 0 0,0 132,38" fill="none" stroke="url(#mRim)" strokeWidth="4" />
           </svg>
         </div>
-
         <h3>{hasAll ? "봄동 비빔밥 완성!" : "봄동 비빔밥 미완성..."}</h3>
         <p className="share-score">{yesCount}/{ingredients.length}개 재료 보유</p>
         <p>{hasAll ? "오늘 양푼째 비벼먹는다" : "이거 좀 사갖고 와줘"}</p>
-
         {!hasAll && (
           <div className="share-missing-list">
             <div className="label">사갖고 올 것</div>
-            {missing.map((m, i) => (
-              <div key={i}>{m.emoji} {m.name} ({m.detail})</div>
-            ))}
+            {missing.map((m, i) => (<div key={i}>{m.emoji} {m.name} ({m.detail})</div>))}
           </div>
         )}
       </div>
-
       <div className="complete-actions">
-        <button className="action-btn primary" onClick={handleKakaoShare}>💬 카카오톡으로 보내기</button>
+        <button className="action-btn primary" onClick={handleShare}>공유하기</button>
         <button className="action-btn secondary" onClick={handleCopyLink}>{copied ? "✅ 복사 완료!" : "🔗 링크 복사"}</button>
         <button className="action-btn secondary" onClick={handleSaveImage} disabled={saving}>{saving ? "저장 중..." : "📷 이미지 저장"}</button>
       </div>
-
       <button className="back-link" onClick={onBack}>← 돌아가기</button>
     </div>
   );
