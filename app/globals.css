@@ -482,3 +482,43 @@ body {
   margin: 12px 0 0;
   line-height: 1.5;
 }
+
+/* ===== 쿠팡 파트너스 고지 ===== */
+.coupang-notice {
+  font-size: 11px;
+  color: var(--text-lighter);
+  text-align: center;
+  margin: 12px 0 0;
+  line-height: 1.5;
+}
+
+/* ===== 링크 칩 스타일 (구매 가능 표시) ===== */
+a.missing-chip {
+  text-decoration: none;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-light);
+  color: var(--text);
+  position: relative;
+  padding-right: 42px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+a.missing-chip::after {
+  content: "구매";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background: var(--accent);
+  border-radius: 0 16px 16px 0;
+}
+
+a.missing-chip:active {
+  background: var(--accent-border);
+}
