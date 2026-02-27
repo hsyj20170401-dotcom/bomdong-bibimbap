@@ -1,5 +1,5 @@
 import "./globals.css";
-import Script from "next/script";
+import KakaoScript from "../components/KakaoScript";
 
 export const metadata = {
   title: "봄동 비빔밥 체크리스트",
@@ -32,13 +32,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
-        <Script
-          src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
-          integrity="sha384-DKYJZ8NLiK8MN4/C5P2ezmFnkrysYIcFM3HfJqYQi6TvSa+l2G0RnqBd9gAIuNi"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-          onLoad="Kakao.init('8e4f47f75dc7d124f6a7d310e562dc94')"
-        />
+        <KakaoScript />
       </body>
     </html>
   );
