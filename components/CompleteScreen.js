@@ -46,6 +46,8 @@ export default function CompleteScreen({ ingredients, answers, onShare, onRecipe
           </div>
         </div>
       )}
+      {missing.length > 0 && missing.some((m) => m.coupangLink) && (<p className="coupang-notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>)}
+
       <div className="complete-actions">
         <button className="action-btn primary" onClick={onShare}>공유하기</button>
         <button className="action-btn secondary" onClick={onRecipe}>만드는 법 보기</button>

@@ -39,7 +39,7 @@ body {
 .cover-title .accent { color: var(--accent); }
 .cover-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin: 14px auto; }
 .cover-meme-quote { font-family: "Gaegu", cursive; font-size: 22px; color: var(--text-mid); margin-bottom: 4px; }
-.cover-meme-src { font-size: 10px; color: var(--text-lighter); margin-bottom: 36px; }
+.cover-meme-src { font-size: 10px; color: #999999; margin-bottom: 36px; }
 .cover-stats { display: flex; gap: 28px; margin-bottom: 40px; }
 .cover-stat { text-align: center; }
 .cover-stat-num { font-size: 22px; font-weight: 900; color: var(--text); }
@@ -51,7 +51,7 @@ body {
 }
 .cover-start-btn:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(212,68,42,0.25); }
 .cover-start-btn:active { transform: scale(0.97); }
-.cover-time { font-size: 11px; color: var(--text-lighter); }
+.cover-time { font-size: 11px; color: #999999; }
 .hero {
   background: var(--white); padding: 16px 20px 12px; text-align: center;
   border-bottom: 1px solid var(--border); flex-shrink: 0;
@@ -104,7 +104,7 @@ body {
 }
 .ingredient-card.active { opacity: 1; transform: translateX(0) scale(1); pointer-events: all; }
 .ingredient-card.exit-left { opacity: 0; transform: translateX(-100px) scale(0.95); }
-.card-category { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 700; color: var(--text-lighter); letter-spacing: 1px; text-transform: uppercase; }
+.card-category { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 700; color: #999999; letter-spacing: 1px; text-transform: uppercase; }
 .card-number { position: absolute; top: 16px; right: 16px; font-size: 12px; font-weight: 700; color: var(--border-dark); }
 .card-image-placeholder { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 52px; background: var(--bg); border: 2px dashed var(--border-dark); }
 .card-name { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
@@ -140,7 +140,7 @@ body {
 .share-card p { font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
 .share-missing-list { text-align: left; padding: 12px; background: var(--accent-light); border-radius: 12px; font-size: 12px; color: var(--text-mid); line-height: 1.8; }
 .share-missing-list .label { font-size: 11px; color: var(--accent); margin-bottom: 4px; font-weight: 700; }
-.share-note { font-size: 11px; color: var(--text-lighter); margin-bottom: 16px; }
+.share-note { font-size: 11px; color: #999999; margin-bottom: 16px; }
 .back-link { font-size: 13px; color: var(--text-light); cursor: pointer; margin-top: 8px; background: none; border: none; font-family: "Noto Sans KR", sans-serif; }
 .back-link:hover { color: var(--accent); }
 @keyframes confettiFall {
@@ -238,7 +238,7 @@ body {
 
 .shared-score-slash {
   font-size: 28px;
-  color: var(--text-lighter);
+  color: #999999;
   margin: 0 2px;
 }
 
@@ -356,7 +356,7 @@ body {
 
 .shared-footer {
   font-size: 11px;
-  color: var(--text-lighter);
+  color: #999999;
 }
 
 /* ===== 반응형 양푼 크기 조정 ===== */
@@ -477,7 +477,7 @@ body {
 /* ===== 쿠팡 파트너스 고지 ===== */
 .coupang-notice {
   font-size: 11px;
-  color: var(--text-lighter);
+  color: #999999;
   text-align: center;
   margin: 12px 0 0;
   line-height: 1.5;
@@ -486,7 +486,7 @@ body {
 /* ===== 쿠팡 파트너스 고지 ===== */
 .coupang-notice {
   font-size: 11px;
-  color: var(--text-lighter);
+  color: #999999;
   text-align: center;
   margin: 12px 0 0;
   line-height: 1.5;
