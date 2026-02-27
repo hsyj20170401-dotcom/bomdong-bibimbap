@@ -38,7 +38,7 @@ body {
 }
 .cover-title .accent { color: var(--accent); }
 .cover-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin: 14px auto; }
-.cover-meme-quote { font-family: "Gaegu", cursive; font-size: 22px; color: var(--text-mid); margin-bottom: 4px; }
+.cover-meme-quote { font-family: "Gaegu", cursive; font-size: 17px; color: var(--text-mid); margin-bottom: 4px; }
 .cover-meme-src { font-size: 10px; color: #999999; margin-bottom: 36px; }
 .cover-stats { display: flex; gap: 28px; margin-bottom: 40px; }
 .cover-stat { text-align: center; }
