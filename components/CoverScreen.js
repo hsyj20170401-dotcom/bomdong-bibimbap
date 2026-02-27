@@ -6,9 +6,9 @@ export default function CoverScreen({ onStart }) {
       <div className="cover-badge">두쫀쿠 다음은 봄동 비빔밥</div>
 
       <h1 className="cover-title">
-        <span className="accent">봄동</span>
+        <span className="accent">봄동 비빔밥</span>
         <br />
-        비빔밥 탑승 체크
+        유행 탑승 사전점검
       </h1>
 
       <div className="cover-divider" />
@@ -31,7 +31,7 @@ export default function CoverScreen({ onStart }) {
       </div>
 
       <button className="cover-start-btn" onClick={onStart}>
-        재료 체크 시작하기
+        체크 후 유행 탑승하기
       </button>
       <p className="cover-time">약 1분이면 끝나요</p>
     </div>
