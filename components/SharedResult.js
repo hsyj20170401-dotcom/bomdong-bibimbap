@@ -15,7 +15,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
       <div className="shared-header">
         <span className="shared-badge">봄동 비빔밥 체크리스트</span>
         <h1 className="shared-title">
-          {hasAll ? "재료 완벽 구비!" : "누군가의 봄동 비빔밥"}
+          {hasAll ? "재료 완벽 구비! 🔥" : "누군가의 봄동 비빔밥"}
         </h1>
       </div>
 
@@ -23,21 +23,10 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
         <div style={{ width: 160, height: 115, margin: "0 auto 16px" }}>
           <svg viewBox="0 0 160 115" width="160" height="115">
             <defs>
-              <radialGradient id="sFloor" cx="50%" cy="45%" r="50%">
-                <stop offset="0%" stopColor="#f5f5f5" />
-                <stop offset="100%" stopColor="#e8e8e8" />
-              </radialGradient>
-              <linearGradient id="sRim" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#e0e0e0" />
-                <stop offset="100%" stopColor="#c8c8c8" />
-              </linearGradient>
-              <linearGradient id="sWall" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#d8d8d8" />
-                <stop offset="100%" stopColor="#c0c0c0" />
-              </linearGradient>
-              <clipPath id="sClip">
-                <ellipse cx="80" cy="58" rx="64" ry="34" />
-              </clipPath>
+              <radialGradient id="sFloor" cx="50%" cy="45%" r="50%"><stop offset="0%" stopColor="#f5f5f5" /><stop offset="100%" stopColor="#e8e8e8" /></radialGradient>
+              <linearGradient id="sRim" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#e0e0e0" /><stop offset="100%" stopColor="#c8c8c8" /></linearGradient>
+              <linearGradient id="sWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#d8d8d8" /><stop offset="100%" stopColor="#c0c0c0" /></linearGradient>
+              <clipPath id="sClip"><ellipse cx="80" cy="58" rx="64" ry="34" /></clipPath>
             </defs>
             <ellipse cx="82" cy="102" rx="60" ry="11" fill="rgba(0,0,0,0.08)" />
             <ellipse cx="80" cy="64" rx="70" ry="42" fill="url(#sWall)" />
@@ -65,33 +54,38 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
           <span className="shared-score-total">{ingredients.length}</span>
         </div>
         <p className="shared-score-label">
-          {hasAll ? "모든 재료 완비! 양푼 꺼내자!" : missing.length + "개 재료가 부족해요"}
+          {hasAll ? "모든 재료 완비! 양푼 꺼내자!" : `${missing.length}개 재료가 부족해요`}
         </p>
 
         {!hasAll && (
           <div className="shared-missing">
-            <div className="shared-missing-title">이거 좀 사갖고 와줘</div>
+            <div className="shared-missing-title">이거 좀 사갖고 와줘 🥺</div>
             <div className="shared-missing-chips">
-              {missing.map((m, i) => (
-                <span key={i} className="shared-chip">{m.emoji} {m.name}</span>
-              ))}
+              {missing.map((m, i) => m.coupangLink ? (<a key={i} href={m.coupangLink} target="_blank" rel="noopener noreferrer" className="shared-chip coupang">{m.emoji} {m.name}<span className="chip-buy">구매</span></a>) : (<span key={i} className="shared-chip">{m.emoji} {m.name}</span>))}
             </div>
           </div>
         )}
 
         {yesCount > 0 && (
           <div className="shared-have">
-            <div className="shared-have-title">보유 재료</div>
+            <div className="shared-have-title">보유 재료 ✅</div>
             <div className="shared-have-list">
-              {ingredients.filter((_, i) => answers[i]).map((m, i) => (
-                <span key={i} className="shared-have-item">{m.emoji} {m.name}</span>
-              ))}
+              {ingredients.filter((_, i) => answers[i]).map((m, i) => (<span key={i} className="shared-have-item">{m.emoji} {m.name}</span>))}
             </div>
           </div>
         )}
       </div>
 
-      <button className="shared-try-btn" onClick={onTryMyself}>나도 체크해보기</button>
+      {missing.length > 0 && missing.some((m) => m.coupangLink) && (
+        <p className="coupang-notice">
+          이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+        </p>
+      )}
+
+      <button className="shared-try-btn" onClick={onTryMyself}>
+        🥬 나도 체크해보기
+      </button>
+
       <p className="shared-footer">봄동 비빔밥 체크리스트</p>
     </div>
   );

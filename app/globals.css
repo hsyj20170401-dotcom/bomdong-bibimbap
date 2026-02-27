@@ -473,3 +473,12 @@ body {
     min-height: 18px;
   }
 }
+
+/* ===== 쿠팡 파트너스 고지 ===== */
+.coupang-notice {
+  font-size: 11px;
+  color: var(--text-lighter);
+  text-align: center;
+  margin: 12px 0 0;
+  line-height: 1.5;
+}

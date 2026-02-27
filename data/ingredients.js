@@ -6,7 +6,7 @@ const ingredients = [
     emoji: "🥬",
     category: "기본 재료",
     layer: "bomdong",
-    coupangLink: "https://link.coupang.com/a/dUn4av",
+    coupangLink: "https://link.coupang.com/a/dUoQUf",
   },
   {
     name: "밥",
@@ -15,7 +15,7 @@ const ingredients = [
     emoji: "🍚",
     category: "기본 재료",
     layer: "rice",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoRGk",
   },
   {
     name: "계란",
@@ -24,7 +24,7 @@ const ingredients = [
     emoji: "🍳",
     category: "기본 재료",
     layer: "egg",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoRGk",
   },
   {
     name: "고추장",
@@ -33,7 +33,7 @@ const ingredients = [
     emoji: "🌶️",
     category: "양념장",
     layer: "sauce",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoRGk",
   },
   {
     name: "고춧가루",
@@ -42,7 +42,7 @@ const ingredients = [
     emoji: "🫙",
     category: "양념장",
     layer: "gochugaru",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoRGk",
   },
   {
     name: "참기름",
@@ -51,7 +51,7 @@ const ingredients = [
     emoji: "🫗",
     category: "양념장",
     layer: "oil",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoSNV",
   },
   {
     name: "멸치액젓",
@@ -60,7 +60,7 @@ const ingredients = [
     emoji: "🍶",
     category: "양념장",
     layer: "anchovy",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoSWT",
   },
   {
     name: "매실청",
@@ -69,7 +69,7 @@ const ingredients = [
     emoji: "🍏",
     category: "양념장",
     layer: "maesil",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoTjZ",
   },
   {
     name: "진간장",
@@ -78,7 +78,7 @@ const ingredients = [
     emoji: "🫘",
     category: "양념장",
     layer: "soy",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoTrp",
   },
   {
     name: "통깨",
@@ -87,7 +87,7 @@ const ingredients = [
     emoji: "🌾",
     category: "양념장",
     layer: "sesame",
-    coupangLink: "",
+    coupangLink: "https://link.coupang.com/a/dUoTyE",
   },
 ];
 
