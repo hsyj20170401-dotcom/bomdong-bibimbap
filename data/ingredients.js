@@ -24,7 +24,7 @@ const ingredients = [
     emoji: "🍳",
     category: "기본 재료",
     layer: "egg",
-    coupangLink: "https://link.coupang.com/a/dUoRGk",
+    coupangLink: "https://link.coupang.com/a/dUp51M",
   },
   {
     name: "고추장",
@@ -33,7 +33,7 @@ const ingredients = [
     emoji: "🌶️",
     category: "양념장",
     layer: "sauce",
-    coupangLink: "https://link.coupang.com/a/dUoRGk",
+    coupangLink: "https://link.coupang.com/a/dUp6sM",
   },
   {
     name: "고춧가루",
@@ -42,7 +42,7 @@ const ingredients = [
     emoji: "🫙",
     category: "양념장",
     layer: "gochugaru",
-    coupangLink: "https://link.coupang.com/a/dUoRGk",
+    coupangLink: "https://link.coupang.com/a/dUp6Ke",
   },
   {
     name: "참기름",
