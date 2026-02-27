@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL("https://bomdongbibimbap.com"),
@@ -29,7 +30,19 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-5NYBGJL97J"
+        strategy="afterInteractive"
+      />
+      <Script id="ga" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5NYBGJL97J');
+        `}
+      </Script>{children}</body>
     </html>
   );
 }
