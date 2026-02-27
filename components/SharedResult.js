@@ -13,9 +13,9 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
   return (
     <div className="shared-result">
       <div className="shared-header">
-        <span className="shared-badge">봄동 비빔밥 체크리스트</span>
+        <span className="shared-badge">밸동 비비밥 체크리스탄</span>
         <h1 className="shared-title">
-          {hasAll ? "재료 완벽 구비! 🔥" : "누군가의 봄동 비빔밥"}
+          {hasAll ? "촬료 완벉 구비! \uD83D\uDE25" : "누군가의 봄동 비빹뀥"}
         </h1>
       </div>
 
@@ -115,18 +115,18 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
         </div>
         <p className="shared-score-label">
           {hasAll
-            ? "모든 재료 완비! 양푸 꺼내자!"
+            ? "모든 재료 완비! 양픸 ꪨ내자!"
             : `${missing.length}개 재료가 부족해요`}
         </p>
 
         {!hasAll && (
           <div className="missing-summary">
             <div className="missing-summary-title">
-              이거 좀 사갖고 와줘 🥹
+              이뀓 ག 사갖고 와줘 🥹
             </div>
             <div className="coupang-card-list">
               {missing.map((m, i) => (
-                
+                <a
                   key={i}
                   href={m.coupangLink || "#"}
                   target={m.coupangLink ? "_blank" : undefined}
@@ -163,7 +163,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
 
       {missing.length > 0 && missing.some((m) => m.coupangLink) && (
         <p className="coupang-notice">
-          이 포스팅은 쿠팡 파트너스 활동의 일환으로,<br />이에 따른 일정액의 수수료를 제공받습니다.
+          이 포스팅은 찼팡 파트너스 활동의 일환으로,<br />이에 따른 일정읡의 수수료를 제공받습니다.
         </p>
       )}
 
@@ -171,7 +171,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
         🥬 나도 체크해보기
       </button>
 
-      <p className="shared-footer">봄동 비빔밥 체크리스트</p>
+      <p className="shared-footer">봄:동 비비밥 체크리스탄</p>
     </div>
   );
 }
