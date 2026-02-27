@@ -15,7 +15,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
       <div className="shared-header">
         <span className="shared-badge">봄동 비빔밥 체크리스트</span>
         <h1 className="shared-title">
-          {hasAll ? "재료 완벽 구비! 🔥" : "누군가의 봄동 비빔밥"}
+          {hasAll ? "재료 완벽 구비! \u{1F525}" : "누군가의 봄동 비빔밥"}
         </h1>
       </div>
 
@@ -122,7 +122,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
         {!hasAll && (
           <div className="missing-summary">
             <div className="missing-summary-title">
-              이거 좀 사갖고 와줘 🥹
+              이거 좀 사갖고 와줘 \u{1F979}
             </div>
             <div className="coupang-card-list">
               {missing.map((m, i) => (
@@ -147,7 +147,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
 
         {yesCount > 0 && (
           <div className="shared-have">
-            <div className="shared-have-title">보유 재료 ✅</div>
+            <div className="shared-have-title">보유 재료 \u2705</div>
             <div className="shared-have-list">
               {ingredients
                 .filter((_, i) => answers[i])
@@ -168,7 +168,7 @@ export default function SharedResult({ ingredients, answers, onTryMyself }) {
       )}
 
       <button className="shared-try-btn" onClick={onTryMyself}>
-        🥬 나도 체크해보기
+        \u{1F96C} 나도 체크해보기
       </button>
 
       <p className="shared-footer">봄동 비빔밥 체크리스트</p>

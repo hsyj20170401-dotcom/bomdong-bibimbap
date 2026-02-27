@@ -38,11 +38,11 @@ body {
 }
 .cover-title .accent { color: var(--accent); }
 .cover-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin: 14px auto; }
-.cover-meme-quote { font-family: "Gaegu", cursive; font-size: 17px; color: var(--text-mid); margin-bottom: 4px; }
+.cover-meme-quote { font-family: "Gaegu", cursive; font-size: clamp(15px, 4.2vw, 20px); color: var(--text-mid); margin-bottom: 4px; }
 .cover-meme-src { font-size: 10px; color: #999999; margin-bottom: 36px; }
 .cover-stats { display: flex; gap: 28px; margin-bottom: 40px; }
 .cover-stat { text-align: center; }
-.cover-stat-num { font-size: 22px; font-weight: 900; color: var(--text); }
+.cover-stat-num { font-size: clamp(15px, 4.2vw, 20px); font-weight: 900; color: var(--text); }
 .cover-stat-label { font-size: 10px; color: var(--text-light); margin-top: 2px; }
 .cover-start-btn {
   width: 100%; padding: 18px; background: var(--accent); color: var(--white);
