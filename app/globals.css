@@ -396,3 +396,80 @@ body {
 .bowl-svg-wrapper {
   max-width: 280px;
 }
+
+/* ===== 모바일 절대 안 잘리게 ===== */
+/* 양푼 섹션이 줄어들 수 있게 flex-shrink 허용 */
+.bowl-section {
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
+/* 양푼 크기를 화면 높이 비율로 조절 */
+.bowl-svg-wrapper {
+  max-width: min(280px, 38vh);
+}
+
+/* 카드 영역 최소 높이 보장 */
+.card-section {
+  min-height: 280px;
+  flex-shrink: 0;
+}
+
+/* 히어로 영역 컴팩트하게 */
+.hero {
+  flex-shrink: 0;
+}
+
+/* 아이폰 SE, 갤럭시 등 작은 화면 */
+@media (max-height: 700px) {
+  .hero {
+    padding: 8px 20px 6px;
+  }
+  .hero h1 {
+    font-size: 16px;
+  }
+  .hero-sub {
+    font-size: 10px;
+  }
+  .bowl-section {
+    padding: 2px 16px 6px;
+  }
+  .bowl-svg-wrapper {
+    max-width: min(220px, 30vh);
+  }
+  .bowl-progress {
+    margin-top: 2px;
+    font-size: 11px;
+  }
+  .bowl-status {
+    font-size: 12px;
+    min-height: 16px;
+    margin-top: 2px;
+  }
+  .card-header {
+    padding: 10px 20px 4px;
+  }
+  .card-buttons {
+    padding: 8px 20px 16px;
+  }
+}
+
+/* 중간 화면 (아이폰 13, 14 등) */
+@media (max-height: 850px) and (min-height: 701px) {
+  .hero {
+    padding: 10px 20px 8px;
+  }
+  .bowl-section {
+    padding: 4px 20px 8px;
+  }
+  .bowl-svg-wrapper {
+    max-width: min(260px, 34vh);
+  }
+  .bowl-progress {
+    margin-top: 4px;
+  }
+  .bowl-status {
+    font-size: 14px;
+    min-height: 18px;
+  }
+}
