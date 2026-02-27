@@ -158,7 +158,6 @@ function Home() {
             ingredients={ingredients}
             answers={answers}
             onShare={handleShare}
-            onRecipe={handleRecipe}
             onReset={handleReset}
           />
         </>

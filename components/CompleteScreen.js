@@ -20,8 +20,9 @@ function launchConfetti() {
   setTimeout(() => container.remove(), 3000);
 }
 
-export default function CompleteScreen({ ingredients, answers, onShare, onRecipe, onReset }) {
+export default function CompleteScreen({ ingredients, answers, onShare, onReset }) {
   const missing = ingredients.filter((_, i) => !answers[i]);
+  const missingWithLink = missing.filter((m) => m.coupangLink);
 
   useEffect(() => {
     if (missing.length === 0) launchConfetti();
@@ -29,14 +30,14 @@ export default function CompleteScreen({ ingredients, answers, onShare, onRecipe
 
   let title, sub;
   if (missing.length === 0) {
-    title = "비빔밥 준비 완료!";
-    sub = "모든 재료가 준비됐어요.\n양푼 꺼내고 쓱쓱 비벼먹자!";
+    title = "\uBE44\uBE54\uBC25 \uC900\uBE44 \uC644\uB8CC!";
+    sub = "\uBAA8\uB4E0 \uC7AC\uB8CC\uAC00 \uC900\uBE44\uB410\uC5B4\uC694.\n\uC591\uD478 \uAEBC\uB0B4\uACE0 \uC435\uC435 \uBE44\uBCA0\uBA39\uC790!";
   } else if (missing.length <= 3) {
-    title = "거의 다 됐어!";
-    sub = `${missing.length}개만 더 있으면 완성이에요.`;
+    title = "\uAC70\uC758 \uB2E4 \uB410\uC5B4!";
+    sub = `${missing.length}\uAC1C\uB9CC \uB354 \uC788\uC73C\uBA74 \uC644\uC131\uC774\uC5D0\uC694.`;
   } else {
-    title = "장보러 가야겠는데...";
-    sub = "빠진 재료가 좀 있어요.";
+    title = "\uC7A5\uBCF4\uB7EC \uAC00\uC57C\uACA0\uB294\uB370...";
+    sub = "\uBE60\uC9C4 \uC7AC\uB8CC\uAC00 \uC880 \uC788\uC5B4\uC694.";
   }
 
   return (
@@ -46,27 +47,29 @@ export default function CompleteScreen({ ingredients, answers, onShare, onRecipe
 
       {missing.length > 0 && (
         <div className="missing-summary">
-          <div className="missing-summary-title">장봐야 할 재료</div>
-          <div className="missing-chips">
-            {missing.map((m, i) =>
-              m.coupangLink ? (
-                <a key={i} href={m.coupangLink} target="_blank" rel="noopener noreferrer" className="missing-chip">{m.emoji} {m.name}</a>
-              ) : (
-                <span key={i} className="missing-chip">{m.emoji} {m.name}</span>
-              )
-            )}
+          <div className="missing-summary-title">{"\uBD80\uC871\uD55C \uC7AC\uB8CC"} {missing.length}{"\uAC1C"}</div>
+          <div className="coupang-card-list">
+            {missing.map((m, i) => (
+              <a key={i} href={m.coupangLink || "#"} target={m.coupangLink ? "_blank" : undefined} rel="noopener noreferrer" className={"coupang-item-card" + (m.coupangLink ? "" : " no-link")}>
+                <div className="coupang-item-emoji">{m.emoji}</div>
+                <div className="coupang-item-info">
+                  <div className="coupang-item-name">{m.name}</div>
+                  <div className="coupang-item-detail">{m.detail}</div>
+                </div>
+                {m.coupangLink && <div className="coupang-buy-btn">{"\uAD6C\uB9E4"}</div>}
+              </a>
+            ))}
           </div>
         </div>
       )}
 
-      {missing.length > 0 && missing.some((m) => m.coupangLink) && (
-        <p className="coupang-notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+      {missingWithLink.length > 0 && (
+        <p className="coupang-notice">{"\uC774 \uD3EC\uC2A4\uD305\uC740 \uCFE0\uD321 \uD30C\uD2B8\uB108\uC2A4 \uD65C\uB3D9\uC758 \uC77C\uD658\uC73C\uB85C,"}<br />{"\uC774\uC5D0 \uB530\uB978 \uC77C\uC815\uC561\uC758 \uC218\uC218\uB8CC\uB97C \uC81C\uACF5\uBC1B\uC2B5\uB2C8\uB2E4."}</p>
       )}
 
       <div className="complete-actions">
-        <button className="action-btn primary" onClick={onShare}>공유하기</button>
-        <button className="action-btn secondary" onClick={onRecipe}>만드는 법 보기</button>
-        <button className="action-btn outline" onClick={onReset}>다시 하기</button>
+        <button className="action-btn primary" onClick={onShare}>{"\uACF5\uC720\uD558\uAE30"}</button>
+        <button className="action-btn outline" onClick={onReset}>{"\uB2E4\uC2DC \uD558\uAE30"}</button>
       </div>
     </div>
   );
