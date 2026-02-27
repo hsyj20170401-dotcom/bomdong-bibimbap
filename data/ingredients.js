@@ -1,0 +1,13 @@
+const ingredients = [
+  { name: "봄동", detail: "1포기 (200g)", tip: "오늘의 주인공!", emoji: "🥬", category: "기본 재료", layer: "bomdong", coupangLink: "" },
+  { name: "밥", detail: "1공기", tip: "따뜻한 갓 지은 밥", emoji: "🍚", category: "기본 재료", layer: "rice", coupangLink: "" },
+  { name: "계란", detail: "1개", tip: "반숙 프라이 추천", emoji: "🍳", category: "기본 재료", layer: "egg", coupangLink: "" },
+  { name: "고추장", detail: "1.5큰술", tip: "핵심 양념!", emoji: "🌶️", category: "양념장", layer: "sauce", coupangLink: "" },
+  { name: "고춧가루", detail: "1큰술", tip: "굵은+고운 섞으면 꿀팁", emoji: "🫙", category: "양념장", layer: "gochugaru", coupangLink: "" },
+  { name: "참기름", detail: "1큰술", tip: "넉넉히!", emoji: "🫗", category: "양념장", layer: "oil", coupangLink: "" },
+  { name: "멸치액젓", detail: "1큰술", tip: "감칠맛 담당", emoji: "🍶", category: "양념장", layer: "anchovy", coupangLink: "" },
+  { name: "매실청", detail: "1큰술", tip: "설탕으로 대체 가능", emoji: "🍏", category: "양념장", layer: "maesil", coupangLink: "" },
+  { name: "진간장", detail: "0.5큰술", tip: "깊은 맛의 비결", emoji: "🫘", category: "양념장", layer: "soy", coupangLink: "" },
+  { name: "통깨", detail: "약간", tip: "마무리 토핑", emoji: "🌾", category: "양념장", layer: "sesame", coupangLink: "" },
+];
+export default ingredients;
