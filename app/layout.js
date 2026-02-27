@@ -1,25 +1,22 @@
 import "./globals.css";
-import KakaoScript from "../components/KakaoScript";
 
 export const metadata = {
-  title: "봄동 비빔밥 체크리스트",
-  description: "우리집 봄동 비빔밥, 재료 다 있나? 카드 넘기면서 체크하고 양푼째 비벼먹자!",
   metadataBase: new URL("https://bomdongbibimbap.com"),
+  title: "봄동 비빔밥 체크리스트",
+  description: "나도 강호동 봄동 비빔밥 막차 탄다!",
   openGraph: {
     title: "봄동 비빔밥 체크리스트",
-    description: "재료 체크하고 양푼째 비벼먹자!",
+    description: "나도 강호동 봄동 비빔밥 막차 탄다!",
     type: "website",
     locale: "ko_KR",
-    siteName: "봄동 비빔밥 체크리스트",
   },
   twitter: {
     card: "summary_large_image",
     title: "봄동 비빔밥 체크리스트",
-    description: "재료 체크하고 양푼째 비벼먹자!",
+    description: "나도 강호동 봄동 비빔밥 막차 탄다!",
   },
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
-
-export const viewport = "width=device-width, initial-scale=1, maximum-scale=1";
 
 export default function RootLayout({ children }) {
   return (
@@ -30,10 +27,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
-        {children}
-        <KakaoScript />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
