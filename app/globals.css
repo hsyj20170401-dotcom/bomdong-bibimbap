@@ -33,7 +33,7 @@ body {
   padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-bottom: 28px;
 }
 .cover-title {
-  font-family: "Gaegu", cursive; font-size: 48px; font-weight: 700;
+  font-family: "Gaegu", cursive; font-size: 42px; font-weight: 700;
   color: var(--text); line-height: 1.15; margin-bottom: 12px;
 }
 .cover-title .accent { color: var(--accent); }
@@ -600,4 +600,11 @@ a.missing-chip:active {
   text-align: center;
   margin: 16px 0 16px;
   line-height: 1.8;
+}
+
+.cover-subtitle {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }

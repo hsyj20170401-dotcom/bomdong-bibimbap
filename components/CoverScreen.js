@@ -8,7 +8,7 @@ export default function CoverScreen({ onStart }) {
       <h1 className="cover-title">
         <span className="accent">봄동 비빔밥</span>
         <br />
-        유행 탑승 사전점검
+        <span class="cover-subtitle">유행 탑승 사전점검</span>
       </h1>
 
       <div className="cover-divider" />
