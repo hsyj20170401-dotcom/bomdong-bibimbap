@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
+        <meta name="google-site-verification" content="UN72h2a-ElW3ik41MG-aquSIaDI005su-ulESwBOlBw" />
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gaegu:wght@400;700&display=swap"
           rel="stylesheet"
