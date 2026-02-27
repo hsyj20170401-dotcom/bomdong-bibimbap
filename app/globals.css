@@ -358,3 +358,41 @@ body {
   font-size: 11px;
   color: var(--text-lighter);
 }
+
+/* ===== 반응형 양푼 크기 조정 ===== */
+@media (max-height: 750px) {
+  .bowl-section {
+    padding: 4px 20px 8px;
+  }
+  .bowl-svg-wrapper {
+    max-width: 240px;
+  }
+  .bowl-progress {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+  .bowl-status {
+    font-size: 13px;
+    min-height: 18px;
+  }
+  .hero {
+    padding: 10px 20px 8px;
+  }
+  .hero h1 {
+    font-size: 17px;
+  }
+}
+
+@media (max-height: 900px) and (min-height: 751px) {
+  .bowl-svg-wrapper {
+    max-width: 280px;
+  }
+  .bowl-section {
+    padding: 6px 20px 10px;
+  }
+}
+
+/* PC에서도 양푼 적정 크기 유지 */
+.bowl-svg-wrapper {
+  max-width: 280px;
+}
